@@ -146,7 +146,7 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-
+{{-- s --}}
 </body>
 
 </html>
