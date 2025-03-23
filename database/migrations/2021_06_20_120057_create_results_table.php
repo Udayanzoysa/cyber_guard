@@ -18,7 +18,12 @@ class CreateResultsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('quiz_id')->constrained();
             $table->integer('quiz_score');
-            $table->integer(('achieved_score'));
+            $table->integer('achieved_score');
+            $table->integer('storage_dovice_score')->nullable();
+            $table->integer('transmission_browsing_score')->nullable();
+            $table->integer('social_media_score')->nullable();
+            $table->integer('authentication_score')->nullable();
+            $table->integer('messaging_score')->nullable();
             $table->timestamps();
         });
     }

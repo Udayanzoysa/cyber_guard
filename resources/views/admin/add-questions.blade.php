@@ -32,8 +32,20 @@
                         <option value="short_answer">Short Answer</option>
                     </select>
                 </div>
+                
+                <div class="form-group">
+                    <label>Question Hygiene</label>
+                    <select name="hygiene" id="question-type" class="form-control" required>
+                        <option value="storage_dovice">Storage and dovice hygiene</option>
+                        <option value="transmission_browsing">Transmission & browsing hugiene</option>
+                        <option value="social_media">Fb & social media hygione.</option>
+                        <option value="authentication">Authentication & credentials hygiene</option>
+                        <option value="messaging">Email & Messaging hygiene.</option>
+                    </select>
+                </div>
 
                 <div id="mcq-options" class="options-group">
+                    <label for="options">Options</label>
                     <div class="form-group">
                         <input type="text" placeholder="Option A" name="options[]" class="form-control">
                     </div>
@@ -47,6 +59,7 @@
                         <input type="text" placeholder="Option D" name="options[]" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label>Define Correct Answer</label>
                         <select name="correct_answer" class="form-control">
                             <option value="0">A</option>
                             <option value="1">B</option>

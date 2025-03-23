@@ -17,11 +17,12 @@ class CreateQuestionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('quiz_id');
             $table->string('question');
+            $table->enum('hygiene', ['storage_dovice', 'transmission_browsing', 'social_media', 'authentication', 'messaging']);
             $table->enum('type', ['mcq', 'fill_blank', 'true_false', 'drag_drop', 'image', 'scenario', 'short_answer']);
             $table->text('options')->nullable(); // Store JSON for multiple options
             $table->text('correct_answer')->nullable();
             $table->timestamps();
-        
+
             $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
         });
     }

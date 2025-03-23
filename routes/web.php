@@ -42,12 +42,11 @@ Route::group(['middleware'=>['verifyUserLogin']],function (){
     Route::post('/store-answer',[AnswerController::class,'store'])->name('store.answer');
 
     Route::get('/results',[ResultController::class,'index'])->name('results');
+    Route::get('/results/view/{id}',[ResultController::class,'resultDetails'])->name('result.details');
 
     Route::group(['middleware'=>['verifyAdmin']],function(){
 
         Route::get('/add-quiz',[QuizController::class,'addQuiz'])->name('add.quiz');
-
-
 
         Route::get('/add-question/{id}',[QuestionController::class,'addQuestion'])->name('add.question');
 

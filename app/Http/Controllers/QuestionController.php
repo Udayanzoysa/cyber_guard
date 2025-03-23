@@ -63,6 +63,7 @@ class QuestionController extends Controller
             'quiz_id' => $request->quiz_id,
             'question' => $request->question,
             'type' => $request->type,
+            'hygiene' => $request->hygiene,
             'options' => json_encode($options), // Store the options as JSON
             'correct_answer' => $answer,
         ];
