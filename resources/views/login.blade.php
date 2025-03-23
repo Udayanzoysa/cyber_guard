@@ -3,7 +3,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Form</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <style>
     * {
   margin: 0;
@@ -129,7 +131,7 @@ h2 {
       <form method="post" action="{{route('login.action')}}">
         @csrf
         @if(session('error'))
-            <span class="alert alert-danger">{{session('error')}}</span>
+            <span class="alert alert-danger mb-1 row">{{session('error')}}</span>
         @endif
         <div class="input-group">
           <label for="email">Username</label>

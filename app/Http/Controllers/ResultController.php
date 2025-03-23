@@ -12,7 +12,7 @@ class ResultController extends Controller
         if (session('user_role') == 'admin') {
             $results = Result::join('quizzes', 'results.quiz_id', '=', 'quizzes.id')
                 ->join('users', 'results.user_id', '=', 'users.id')
-                ->select('results.id as resultid', 'results.*', 'quizzes.title', 'quizzes.duration', 'quizzes.from_time', 'quizzes.to_time', 'users.name')
+                ->select('results.id as resultid', 'results.*', 'quizzes.title', 'quizzes.duration', 'quizzes.from_time', 'quizzes.to_time', 'users.username')
                 ->get();
         } else {
             $results = Result::join('quizzes', 'results.quiz_id', '=', 'quizzes.id')

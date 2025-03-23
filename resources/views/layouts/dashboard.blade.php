@@ -69,16 +69,23 @@
         </nav>
         <!-- <div style="margin-top: 5rem"> -->
         <section class="main-section " id="section_1">
-            @if (session('success'))
-                <span class="alert alert-success">{{ session('success') }}</span>
-            @endif
-            @if (session('msg'))
-                <span class="alert alert-info">{{ session('msg') }}</span>
-            @endif
-            @if (session('error'))
-                <span class="alert alert-danger">{{ session('error') }}</span>
-            @endif
-
+            <div class="container">
+                @if (session('success'))
+                    <div class="col-lg-12 row">
+                        <span class="alert alert-success">{{ session('success') }}</span>
+                    </div>
+                @endif
+                @if (session('msg'))
+                    <div class="col-lg-12 row">
+                        <span class="alert alert-info">{{ session('msg') }}</span>
+                    </div>
+                @endif
+                @if (session('error row'))
+                    <div class="col-lg-12">
+                        <span class="alert alert-danger">{{ session('error') }}</span>
+                    </div>
+                @endif
+            </div>
             @yield('main')
         </section>
         <!-- </div> -->
@@ -146,7 +153,7 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-{{-- s --}}
+    {{-- s --}}
 </body>
 
 </html>
