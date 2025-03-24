@@ -41,4 +41,12 @@ class ResultController extends Controller
 
         return view('user.result-detail', compact('result'));
     }
+    public function baseResultDetails()
+    {
+        $result = session('quiz_result');
+
+        if ($result) {
+            return view('user.base-result-detail', ['result' => $result]);
+        }
+    }
 }

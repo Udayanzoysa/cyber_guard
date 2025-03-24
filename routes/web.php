@@ -28,8 +28,10 @@ Route::post('/check-state-uni', [AuthController::class, 'checkUserForm'])->name(
 
 Route::post('/reg-store',[AuthController::class,'regAction'])->name('reg.action');
 Route::post('/login-action',[AuthController::class,'loginAction'])->name('login.action');
-
-
+Route::get('/base-quiz/{id}',[QuizController::class,'baseQize'])->name('joinbase.quiz');
+Route::get('/base-quiz/{quiz}/{index?}', [QuizController::class, 'showBaseQuestion'])->name('quizbase.page');
+Route::post('/store-base-answer',[AnswerController::class,'storeBase'])->name('store_base.answer');
+Route::get('/get-result/base',[ResultController::class,'baseResultDetails'])->name('base-result.details');
 
 Route::group(['middleware'=>['verifyUserLogin']],function (){
 

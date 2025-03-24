@@ -58,6 +58,47 @@ class AnswerController extends Controller
         return redirect()->route('results')->with('success', 'Quiz completed and results published.');
     }
 
+    public function storeBase(Request $request)
+    {
+        $db_answers = Question::where('quiz_id', $request->quiz_id)->get();
+        $correct = 0;
+        $total = 0;
+
+        // Hygiene categories initialization
+        $categories = [
+            'storage_dovice' => ['total' => 0, 'correct' => 0],
+            'transmission_browsing' => ['total' => 0, 'correct' => 0],
+            'social_media' => ['total' => 0, 'correct' => 0],
+            'authentication' => ['total' => 0, 'correct' => 0],
+            'messaging' => ['total' => 0, 'correct' => 0],
+        ];
+
+        foreach ($db_answers as $index => $db_answer) {
+            $submitted_answer = $request->answer[$index] ?? null;
+            $this->evaluateAnswer($db_answer, $submitted_answer, $correct, $total, $categories);
+        }
+
+        // Calculate hygiene category scores
+        $category_scores = $this->calculateCategoryScores($categories);
+
+        // Save the result in session
+        session([
+            'quiz_result' => [
+                'user_id' => session('user_id'),
+                'quiz_id' => $request->quiz_id,
+                'quiz_score' => $total,
+                'achieved_score' => $correct,
+                'storage_dovice_score' => $category_scores['storage_dovice'],
+                'transmission_browsing_score' => $category_scores['transmission_browsing'],
+                'social_media_score' => $category_scores['social_media'],
+                'authentication_score' => $category_scores['authentication'],
+                'messaging_score' => $category_scores['messaging'],
+            ]
+        ]);
+
+        return redirect()->route('base-result.details')->with('success', 'Quiz completed and results published.');
+    }
+
     /**
      * Evaluates the submitted answer and updates scores accordingly.
      */

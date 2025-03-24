@@ -12,7 +12,8 @@ class Quiz extends Model
       'title',
       'duration',
       'from_time',
-      'to_time'
+      'to_time',
+      "base_quiz",
     ];
 
     public function question(){

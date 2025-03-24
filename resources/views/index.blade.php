@@ -59,7 +59,7 @@ https://templatemo.com/tm-590-topic-listing
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                                     <li><a class="dropdown-item" href="/login">Login</a></li>
 
-                                    <li><a class="dropdown-item" href="/register">Register</a></li>
+                                    {{-- <li><a class="dropdown-item" href="/register">Register</a></li> --}}
                                 </ul>
                             </li>
                         </ul>                   

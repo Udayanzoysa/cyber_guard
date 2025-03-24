@@ -18,7 +18,8 @@ class CreateQuizzesTable extends Migration
             $table->string('title');
             $table->integer('duration');
             $table->timestamp('from_time');
-            $table->timestamp('to_time')->nullable();;
+            $table->timestamp('to_time')->nullable();
+            $table->boolean('base_quiz')->default(false);
             $table->timestamps();
         });
     }
